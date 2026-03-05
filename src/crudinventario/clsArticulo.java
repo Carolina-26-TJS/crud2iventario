@@ -4,6 +4,9 @@
  */
 package crudinventario;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author carol
@@ -21,6 +24,12 @@ public class clsArticulo {
         this.descripcion = descripcion;
         this.precio = precio;
     }
+    
+    // Sobrecarga de metodo constructor
+    public clsArticulo(){
+    }
+    
+    
     // Imprimir en consola los datos del articulo
     public String aTexto(){
         String articulo = this.codigo + "|" + this.descripcion + "|" + this.precio;
@@ -35,5 +44,22 @@ public class clsArticulo {
         article.insertar(this.aTexto());
     
         System.out.print(this.aTexto());
+    }
+    
+    public DefaultListModel llenarLista(){
+        // Instancia desde los datos (modelo)
+        mArticulo mArticuleArticulo = mArticule.consultar();
+        // Llenamos la variable con los datos desde el modelo
+        ArrayList<String> datos = mArticuleArticulo.consultar();
+        
+        // Creamos la plantilla en blanco para el modelo
+        DefaultListModel<String> modelLista = new DefaultListModel<>();
+        // llenamos la pantalla con los datos del modelo
+        for (String registro: datos){
+            modelLista.addElement(registro);
+        }
+        
+        // devolvemos los datos cargados en el modelo de lista
+        return modelLista;
     }
 }

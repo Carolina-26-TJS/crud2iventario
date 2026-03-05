@@ -4,9 +4,12 @@
  */
 package crudinventario;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -33,5 +36,25 @@ public class mArticulo {
                 //lblSaludo.setText("Error al guardar el archivo: " + e.getMessage());
             }
         }
-    
+    public ArrayList<String> consultar(){
+        // Variable donde se guarda los registros de mi archivo
+        ArrayList<String> listaRegistros = new ArrayList<>();
+       
+        // Este codigo lee el archivo completo para usarlo
+        try(BufferedReader br = new BufferedReader(new FileReader("listado_articulos.txt"))){
+            String linea;
+            while ((linea = br.readLine()) != null){
+                String[] datos = linea.split("\\|");
+                // Crea un String formateado como lo necesitas
+                String datoVisual = "Codigo: " + datos[0] + "| Descripcion: " + datos[1] + "| Precio: " + datos[2];
+                // Agrega el registro a el listado de datos
+                listaRegistros.add(datoVisual); 
+            }
+        }catch(IOException e){
+            // Muestra los error que pudieran tener
+            System.out.print("Mensaje de error" + e.getMessage());
+            listaRegistros.add("Error al cargar los datos");
+        }
+        return listaRegistros;
+    }
 }
