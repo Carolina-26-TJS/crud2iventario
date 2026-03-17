@@ -36,6 +36,9 @@ public class clsArticulo {
         return articulo;
     }
     
+    public String getDescripcion(){
+        return this.descripcion;
+    }
     // Guardar informacion
     public void guardar(){
         // Instanciando la clase de MODELO
@@ -48,9 +51,9 @@ public class clsArticulo {
     
     public DefaultListModel llenarLista(){
         // Instancia desde los datos (modelo)
-        mArticulo mArticuleArticulo = mArticule.consultar();
+        mArticulo mArticle = new mArticulo();
         // Llenamos la variable con los datos desde el modelo
-        ArrayList<String> datos = mArticuleArticulo.consultar();
+        ArrayList<String> datos = mArticle.consultar();
         
         // Creamos la plantilla en blanco para el modelo
         DefaultListModel<String> modelLista = new DefaultListModel<>();
@@ -59,7 +62,29 @@ public class clsArticulo {
             modelLista.addElement(registro);
         }
         
-        // devolvemos los datos cargados en el modelo de lista
+        // Devolvemos los datos cargados en el modelo de lista
         return modelLista;
+    }
+    
+    public void actualizar(String newCodigo, String newDescripcion, String newPrecio){
+        
+        // Generamos la nueva linea del registro
+        String nuevaLinea = newCodigo + "|" + newDescripcion + "|" + newPrecio;
+        String lineaOriginal = this.codigo + "|" +this.descripcion + "|" + this.precio;
+        // Imprimir los nuevos valores
+        System.out.println("Nuevo valores:" + nuevaLinea);
+        System.out.println("Valores Originales:" + lineaOriginal);
+        // Solicita la actualilzacion del registro
+        mArticulo mArticule = new mArticulo();
+        mArticule.update(lineaOriginal, nuevaLinea, "listado_articulo.txt");
+    }
+    
+    public void eleminar(){
+        // Registro a eleminar 
+        String lineaOriginal = this.codigo.trim() + "|" +this.descripcion.trim() + "|" + this.precio;
+        System.out.println("Valores Originales:" + lineaOriginal);
+        // Solicita la actualilzacion del registro
+        mArticulo mArticule = new mArticulo();
+        mArticule.delete(lineaOriginal, "listado_articulo.txt");
     }
 }

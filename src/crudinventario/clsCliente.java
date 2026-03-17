@@ -47,12 +47,12 @@ public class clsCliente {
     
     public DefaultListModel llenarLista(){
         // Instancia desde los datos (modelo)
-        mCliente mCliente = mCliente.consultar();
+        mCliente mclient = new mCliente();
         // Llenamos la variable con los datos desde el modelo
-        ArrayList<String> datos = mCliente.consultar;
+        ArrayList<String> datos = mclient.consultar();
         
         // Creamos la plantilla en blanco para el modelo
-        DefaultList<String> modelLista = new DefaultListModel<>();
+        DefaultListModel<String> modelLista = new DefaultListModel<>();
         // llenamos la pantalla con los datos del modelo
         for (String registro: datos){
             modelLista.addElement(registro);

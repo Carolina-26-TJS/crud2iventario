@@ -31,15 +31,17 @@ public class frmMain extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnClientes = new javax.swing.JButton();
-        btnInventarios = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Seleciona una opcion");
 
         btnClientes.setText("Clientes");
+        btnClientes.addActionListener(this::btnClientesActionPerformed);
 
-        btnInventarios.setText("Inventarios");
+        btnInventario.setText("Inventarios");
+        btnInventario.addActionListener(this::btnInventarioActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,7 +53,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(68, Short.MAX_VALUE)
-                .addComponent(btnInventarios)
+                .addComponent(btnInventario)
                 .addGap(60, 60, 60)
                 .addComponent(btnClientes)
                 .addGap(109, 109, 109))
@@ -64,12 +66,22 @@ public class frmMain extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClientes)
-                    .addComponent(btnInventarios))
+                    .addComponent(btnInventario))
                 .addContainerGap(161, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
+        frmArticulo2 fArticulo = new frmArticulo2();
+        fArticulo.setVisible(true);
+    }//GEN-LAST:event_btnInventarioActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        frmCliente fCliente = new frmCliente();
+        fCliente.setVisible(true);
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,7 +110,7 @@ public class frmMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClientes;
-    private javax.swing.JButton btnInventarios;
+    private javax.swing.JButton btnInventario;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
