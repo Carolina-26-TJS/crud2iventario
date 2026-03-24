@@ -1,0 +1,4 @@
+54|Sofia|Premiu|Informatica}
+528|Jenny|Premiu|Administrativa
+429|Laura|Normal|Ingeniera
+720|Perla|Nueva|Industrial
