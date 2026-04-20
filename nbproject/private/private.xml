@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/carol/OneDrive/Documentos/NetBeansProjects/CRUDInventario/src/crudinventario/InventarioGeneral.java</file>
-            <file>file:/C:/Users/carol/OneDrive/Documentos/NetBeansProjects/CRUDInventario/src/crudinventario/frmArticulo.java</file>
+            <file>file:/C:/Users/carol/OneDrive/Documentos/NetBeansProjects/CRUDInventario/src/crudinventario/clsCliente.java</file>
+            <file>file:/C:/Users/carol/OneDrive/Documentos/NetBeansProjects/CRUDInventario/src/crudinventario/frmCliente.java</file>
+            <file>file:/C:/Users/carol/OneDrive/Documentos/NetBeansProjects/CRUDInventario/src/crudinventario/mCliente.java</file>
+            <file>file:/C:/Users/carol/OneDrive/Documentos/NetBeansProjects/CRUDInventario/listado_cliente.txt</file>
         </group>
     </open-files>
 </project-private>
