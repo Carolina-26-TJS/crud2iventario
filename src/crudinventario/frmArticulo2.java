@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
 /**
  *
  * @author carol
@@ -73,6 +78,7 @@ public class frmArticulo2 extends javax.swing.JFrame {
         jmArchivo = new javax.swing.JMenu();
         jmiImportar = new javax.swing.JMenuItem();
         jmiExportar = new javax.swing.JMenuItem();
+        jmiReporte = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -327,6 +333,10 @@ public class frmArticulo2 extends javax.swing.JFrame {
         jmiExportar.addActionListener(this::jmiExportarActionPerformed);
         jmArchivo.add(jmiExportar);
 
+        jmiReporte.setText("Reporte");
+        jmiReporte.addActionListener(this::jmiReporteActionPerformed);
+        jmArchivo.add(jmiReporte);
+
         jMenuBar1.add(jmArchivo);
 
         jMenu2.setText("Informacion");
@@ -488,6 +498,60 @@ public class frmArticulo2 extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jmiExportarActionPerformed
 
+    private void jmiReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiReporteActionPerformed
+         // 1. Instanciamos el documento (La "hoja" en blanco)
+    Document documento = new Document();
+
+    try {
+        // 2. Preparamos el escritor para guardar el archivo en el disco duro
+        PdfWriter.getInstance(documento, new FileOutputStream("Reporte_Inventario.pdf"));
+       
+        // 3. Abrimos el documento para empezar a escribirle
+        documento.open();
+       
+        // 4. Agregamos un Título
+        documento.add(new Paragraph("Reporte Gerencial de Inventario - Taller 360"));
+        documento.add(new Paragraph(" ")); // Un salto de línea para dar espacio
+
+        // 5. Creamos la estructura tabular (3 columnas)
+        PdfPTable tabla = new PdfPTable(3);
+       
+        // 6. Agregamos los encabezados de la tabla
+        tabla.addCell("CÓDIGO");
+        tabla.addCell("DESCRIPCIÓN");
+        tabla.addCell("PRECIO ($)");
+
+        // =======================================================
+        // 7. AQUÍ VA EL CICLO DONDE LEEN SUS DATOS
+        // (Esto es solo una simulación manual para el ejemplo)
+        // En la práctica real, aquí harían el recorrido de su JList
+        // o leerían su archivo .txt línea por línea.
+        // =======================================================
+       
+        // Simulación del Artículo 1
+        tabla.addCell("FER-001");
+        tabla.addCell("Martillo de Acero");
+        tabla.addCell("245.50");
+       
+        // Simulación del Artículo 2
+        tabla.addCell("ELE-002");
+        tabla.addCell("Multímetro Digital");
+        tabla.addCell("420.00");
+
+        // 8. Inyectamos la tabla terminada dentro del documento PDF
+        documento.add(tabla);
+
+        // 9. Cerramos el documento (¡Importantísimo para que se guarde el archivo!)
+        documento.close();
+       
+        // Mensaje de éxito para el usuario
+        javax.swing.JOptionPane.showMessageDialog(this, "¡PDF generado con éxito en la carpeta del proyecto!");
+
+    } catch (Exception e) {
+        System.out.println("Error al generar el PDF: " + e.getMessage());
+    }
+    }//GEN-LAST:event_jmiReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -533,6 +597,7 @@ public class frmArticulo2 extends javax.swing.JFrame {
     private javax.swing.JMenu jmArchivo;
     private javax.swing.JMenuItem jmiExportar;
     private javax.swing.JMenuItem jmiImportar;
+    private javax.swing.JMenuItem jmiReporte;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblDescripcion2;
