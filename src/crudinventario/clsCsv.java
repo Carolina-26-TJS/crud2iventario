@@ -15,6 +15,7 @@ import java.io.IOException;
 public class clsCsv {
     //Atributo del objeto CSV2
     String archivo = "Inventario.csv";
+    String archivo2 = "clientes.csv";
     
     //Metodo del objeto CSV2
     public void importarDatos(){
@@ -35,6 +36,25 @@ public class clsCsv {
             System.out.println("Mensaje de error" + e.getMessage());
 
         } 
+    }
+
+    public void importarCliente(){
+     try(BufferedReader br = new BufferedReader(new FileReader(archivo2))){        
+            br.readLine();   
+            String linea;         
+            while ((linea = br.readLine()) != null){
+                String[] datos = linea.split(",");
+
+                clsCliente cCliente = new clsCliente(datos[0], datos[1],
+                        datos[2], datos[3]);
+                
+                cCliente.guardar();
+                }
+            br.close();
+            System.out.println("Se ha terminado la importacion.");    
+        }catch(IOException e){
+            System.out.println("Mensaje de error" + e.getMessage());
+        }
     }
     
 }

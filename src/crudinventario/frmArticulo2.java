@@ -324,15 +324,15 @@ public class frmArticulo2 extends javax.swing.JFrame {
         jmArchivo.setText("Archivo");
         jmArchivo.addActionListener(this::jmArchivoActionPerformed);
 
-        jmiImportar.setText("Importar");
+        jmiImportar.setText("Importar CSV");
         jmiImportar.addActionListener(this::jmiImportarActionPerformed);
         jmArchivo.add(jmiImportar);
 
-        jmiExportar.setText("Exportar");
+        jmiExportar.setText("Exportar JSON");
         jmiExportar.addActionListener(this::jmiExportarActionPerformed);
         jmArchivo.add(jmiExportar);
 
-        jmiReporte.setText("Generar Reporte");
+        jmiReporte.setText("Generar Reporte PDF");
         jmiReporte.addActionListener(this::jmiReporteActionPerformed);
         jmArchivo.add(jmiReporte);
 
